@@ -4,16 +4,21 @@ card packs for [discord-against-humanity](https://github.com/z64/discord-against
 
 ## Submitting expansions
 
-Expansions (and updates to expansions) are welcome as PR's to this repo. 
+Expansions (and updates to expansions) are welcome as PR's to this repo.
 
-Each one is a simple YAML file. 
+Each one is a simple YAML file.
 
 **Follow the following format in your own YAML expansion:**
 
 ```yaml
 ---
-# the name of your expansion
+# the name of the expansion
 expansion: example expansion
+
+# the authors that contributed
+# to this expansion
+authors:
+  - lune
 
 # questions. (black cards)
 # use a single underscore to denote

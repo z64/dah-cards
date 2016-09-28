@@ -1,6 +1,11 @@
 ---
-# the name of your expansion
+# the name of the expansion
 expansion: example expansion
+
+# the authors that contributed
+# to this expansion
+authors:
+  - lune
 
 # questions. (black cards)
 # use a single underscore to denote
