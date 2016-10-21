@@ -1,0 +1,22 @@
+{
+  "name": "json2yaml",
+  "version": "1.0.0",
+  "description": "converts json/html/&html cah into yaml/markdown/unicode",
+  "main": "json2yaml.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z64/dah-cards.git"
+  },
+  "keywords": [
+    "cah"
+  ],
+  "author": "ashley, cah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/z64/dah-cards/issues"
+  },
+  "homepage": "https://github.com/z64/dah-cards#readme"
+}
