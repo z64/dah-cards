@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/z64/dah-cards/issues"
   },
-  "homepage": "https://github.com/z64/dah-cards#readme"
+  "homepage": "https://github.com/z64/dah-cards#readme",
+  "dependencies": {
+    "node-yaml": "^3.0.3"
+  }
 }
