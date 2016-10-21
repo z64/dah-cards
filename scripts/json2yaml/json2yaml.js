@@ -1,13 +1,22 @@
 var fs = require('fs');
 var yaml = require('node-yaml');
 var toMarkdown = require('to-markdown');
+var Entities = require('html-entities').AllHtmlEntities;
 
-var cardsJson = fs.readFileSync('cards.json');
+// entities.decode will allow us to decode all HTML5 entities
+var entities = new Entities();
+
+if (process.argv.length != 4) {
+  console.log('Usage: node json2yaml.js <infile> <outfile>');
+  process.exit(1);
+}
+
+var cardsJson = fs.readFileSync(process.argv[2]);
 
 // parse the json string into an actual js object so we can work with it
 var cardsObj = JSON.parse(cardsJson);
 
-// for each string that could contain html in cardsObj, set the value to toMarkdown of that string. then go through and detect any &html syntax and convert that to unicode by replacing '&html' with String.fromCharCode(html) where 'html' is the value specified
+// for each string that could contain html in cardsObj, set the value to toMarkdown of that string. then go through and detect any html entities and decode them directly into unicode.
 function recurse(cards) {
   var keys = Object.keys(cards);
 
@@ -22,6 +31,7 @@ function recurse(cards) {
     } else if (typeof obj === 'string') {
       // run the string through a markdown converter and then find any &html codes and replace them with a unicode char using fromCharCode
       // make sure we're modifying the cards object itself and not the temporary object!
+      obj = entities.decode(obj);
       cards[keys[prop]] = toMarkdown(obj);
     }
   }
@@ -30,5 +40,4 @@ function recurse(cards) {
 
 cardsObj = recurse(cardsObj);
 
-// do stuff to cardsObj here then save to yaml file.
-yaml.writeSync('out.yml', cardsObj);
+yaml.writeSync(process.argv[3], cardsObj);

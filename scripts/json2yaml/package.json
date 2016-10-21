@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/z64/dah-cards#readme",
   "dependencies": {
+    "html-entities": "^1.2.0",
     "node-yaml": "^3.0.3",
     "to-markdown": "^3.0.2"
   }
