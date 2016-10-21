@@ -15,6 +15,7 @@ function recurse(cards) {
     // keys is an array of the keys of cards, NOT the objects themselves, so prop is referring to the index OF the key of the corresponding object.
     // NOT the key or index of the object itself!
     var obj = cards[keys[prop]];
+
     // check if the property is an object, if so we're going through again :^)
     if (typeof obj === 'object') {
       recurse(obj);
@@ -28,8 +29,6 @@ function recurse(cards) {
 }
 
 cardsObj = recurse(cardsObj);
-
-
 
 // do stuff to cardsObj here then save to yaml file.
 yaml.writeSync('out.yml', cardsObj);
